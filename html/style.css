@@ -1,0 +1,27 @@
+button{
+    font-size: 18px;    
+    width: 150px;
+    height: 150px;
+    border: 0px;
+}
+
+button#bulb{
+    background: url(https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png);
+    background-size: cover;
+    
+}
+
+#pokemon-list {
+    position: relative;
+    display: table;
+}
+
+li {
+    list-style-type: none;
+    float: left;
+    margin: 10px;
+    border: 2px solid #AD235E;
+}
+#bulb-all{
+    background-color: green;
+}
