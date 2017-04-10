@@ -2,5 +2,5 @@
 
 function pokeCode()
 {
-    let valami = "Valami vagy adsf";
+    let a;
 }
