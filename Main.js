@@ -1,6 +1,5 @@
 "use strict"
 
-function pokeCode()
-{
+function pokeCode() {
     let a;
 }
