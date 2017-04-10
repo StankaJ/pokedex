@@ -1,8 +1,8 @@
 button{
-    font-size: 18px;
-    border: 2px solid #AD235E;
+    font-size: 18px;    
     width: 150px;
     height: 150px;
+    border: 0px;
 }
 
 button#bulb{
@@ -20,4 +20,8 @@ li {
     list-style-type: none;
     float: left;
     margin: 10px;
+    border: 2px solid #AD235E;
+}
+#bulb-all{
+    background-color: green;
 }
