@@ -4,8 +4,20 @@ button{
     width: 150px;
     height: 150px;
 }
+
 button#bulb{
     background: url(https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png);
     background-size: cover;
     
+}
+
+#pokemon-list {
+    position: relative;
+    display: table;
+}
+
+li {
+    list-style-type: none;
+    float: left;
+    margin: 10px;
 }
