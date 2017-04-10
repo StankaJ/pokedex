@@ -4,6 +4,8 @@ button{
     width: 150px;
     height: 150px;
 }
-button #bulb{
-    background: url(https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png) no-repeat;
+button#bulb{
+    background: url(https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png);
+    background-size: cover;
+    
 }
