@@ -1,9 +1,8 @@
 button{
     font-size: 18px;
-border: 2px solid #AD235E;
-border-radius: 100px;
-width: 150px;
-height: 150px;
+    border: 2px solid #AD235E;
+    width: 150px;
+    height: 150px;
 }
 button #bulb{
     background: url(https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png) no-repeat;
