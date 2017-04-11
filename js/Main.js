@@ -38,15 +38,9 @@ var root = document.querySelector(".pokemons");
 
 for (let it of poke)
 {
-  let pokemon = document.createElement("li");
-  let pokemonDl = document.createElement("dl");
-  let pokemonDt = document.createElement("dt");
-  let pokemonDd = document.createElement("dt");
+  let pokemon = document.createElement("li"); 
   let pokemonImage = document.createElement("img");
   pokemonImage.src=it.sprite;
   root.appendChild(pokemon);
-  pokemon.appendChild(pokemonDl);
-  pokemonDl.appendChild(pokemonDt);
-  pokemonDt.appendChild(pokemonImage);
-  pokemonDl.appendChild(pokemonDd);
+  pokemon.appendChild(pokemonImage);  
 }
