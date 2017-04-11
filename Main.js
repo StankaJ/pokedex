@@ -36,6 +36,7 @@ var poke =
 
 var root = document.querySelector(".pokemons");
 
+/*
 setTimeout(function () {
   root.innerHTML = '';
 
@@ -50,7 +51,35 @@ setTimeout(function () {
     root.appendChild(pokemon);
   }
 }, 3000);
+var alma;
+console.log(fetch('http://pokeapi.co/api/v2/pokemon/?limit=50').then(function(response){return response}));
+*/
+function fillPoke() {
+  root.innerHTML = '';
+  poke.forEach(function(pokemonItem){
+    let pokemon = document.createElement("li");
+    let pokemonImage = document.createElement("img");
+    let pokemonLabel = document.createElement("label");
+    pokemonImage.src = pokemonItem.url;
+    pokemonLabel.textContent = pokemonItem.name;
+    pokemon.appendChild(pokemonImage);
+    pokemon.appendChild(pokemonLabel);
+    root.appendChild(pokemon);
+  })
+}
 
+function reqListener () {
+  poke = JSON.parse(this.response).results;
+  console.log(poke);
+  fillPoke();
+  console.log(this.responseText);
+}
+
+
+var oReq = new XMLHttpRequest();
+oReq.addEventListener("load", reqListener);
+oReq.open("GET", "http://pokeapi.co/api/v2/pokemon/?limit=50");
+oReq.send();
 /*
 
 */
