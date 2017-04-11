@@ -1,6 +1,7 @@
 #pokemon-list {
     position: relative;
     display: table;
+    width:100%;
 }
 
 label{
@@ -37,7 +38,7 @@ h1{
     width: 120px;
     height: 120px;
     animation: spin 2s linear infinite;
-    
+    margin: 0 auto;
 }
 
 @keyframes spin {
