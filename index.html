@@ -1,39 +1,21 @@
 <html>
 
 <head>
-    <h1>PokeDex</h1>
+    <meta charset="UTF-8">   
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
-<body>
-    <div id="pokemon-list">
-    <ul>
-        <li id="bulb-all">
-            <dl>  
-                <dt><button id="bulb"></button></dt>  
-                <dd>Bulba Fett</dd>  
-            </dl>  
-        </li>
-        <li>
-            <dl>  
-                <dt><button id="bulb"></button></dt>  
-                <dd>Bulba Fett</dd>  
-            </dl>
-        </li>
-        <li>
-            <dl>  
-                <dt><button id="bulb"></button></dt>  
-                <dd>Bulba Fett</dd>  
-            </dl>
-        </li>
-        <li>
-            <dl>  
-                <dt><button id="bulb"></button></dt>  
-                <dd>Bulba Fett</dd>  
-            </dl>
-        </li>
-    </ul>
-    </div> 
+<body>    
+    <p><h1>Pokémon Database</h1><p>
+    <input id="pokeSearch" type="search" placeholder="Search for Pokémon"/>
+    <div id="pokemon-list">       
+        <ul class="pokemons">
+            <div class="loader-wrapper">
+            <div class="loader"></div>
+            </div>
+        </ul>
+    </div>
+    <script src="Main.js"></script>
 </body>
 
 </html>
