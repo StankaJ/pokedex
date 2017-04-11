@@ -1,6 +1,6 @@
 "use strict"
-
-var poke =
+var poke;
+var poke2 =
   [
     {
       "id": 1,
@@ -59,27 +59,31 @@ https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other-s
 
 
 function fillPoke(filter) {
-  root.innerHTML = '';
-  poke.forEach(function(pokemonItem){
-    if (pokemonItem.name.startsWith(filter))
-    {
-    let pokemon = document.createElement("li");
-    let pokemonImage = document.createElement("img");
-    let pokemonLabel = document.createElement("label");
-    let pictureNumber = pokemonItem.url.replace("http://pokeapi.co/api/v2/pokemon/","").replace("/","");
-    pokemonImage.src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other-sprites/official-artwork/"+pictureNumber+".png";
-    pokemonLabel.textContent = pokemonItem.name;
-    pokemon.appendChild(pokemonImage);
-    pokemon.appendChild(pokemonLabel);
-    root.appendChild(pokemon);
-    }
-  })
+  if (poke !== undefined){
+    root.innerHTML = '';
+    poke.forEach(function(pokemonItem){
+      if (pokemonItem.name.startsWith(filter)){
+        let pokemon = document.createElement("li");
+        let pokemonImage = document.createElement("img");
+        let pokemonLabel = document.createElement("label");
+        let pictureNumber = pokemonItem.url.replace("http://pokeapi.co/api/v2/pokemon/","").replace("/","");
+        pokemonImage.src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other-sprites/official-artwork/"+pictureNumber+".png";
+        pokemonLabel.textContent = pokemonItem.name;
+        pokemon.appendChild(pokemonImage);
+        pokemon.appendChild(pokemonLabel);
+        root.appendChild(pokemon);
+      }
+    })
+  }
 }
+
+var pokeSearchInput = document.getElementById("pokeSearch");
+pokeSearchInput.addEventListener(oninput,fillPoke(pokeSearchInput.value));
 
 function reqListener () {
   poke = JSON.parse(this.response).results;
 //  console.log(poke);
-  fillPoke();
+  fillPoke('');
 //  console.log(this.responseText);
 }
 
