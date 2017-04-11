@@ -5,26 +5,26 @@ button{
     border: 0px;
 }
 
-button#bulb{
-    background: url(https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png);
-    background-size: cover;
-    
-}
-
 #pokemon-list {
     position: relative;
     display: table;
 }
 
+label{
+    display: block;
+    font-family: cursive;
+    text-align: center;
+}
+
+
 li {
     list-style-type: none;
     float: left;
     margin: 10px;
-    border: 2px solid #AD235E;
+    border: 1px solid #AD235E;
+    background-color: gray;
 }
-#bulb-all{
-    background-color: green;
-}
+
 .loader {
     border: 16px solid #f3f3f3; /* Light grey */
     border-top: 16px solid #3498db; /* Blue */
@@ -32,7 +32,7 @@ li {
     width: 120px;
     height: 120px;
     animation: spin 2s linear infinite;
-      
+    
 }
 
 @keyframes spin {
