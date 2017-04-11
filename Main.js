@@ -73,9 +73,9 @@ function fillPoke() {
 
 function reqListener () {
   poke = JSON.parse(this.response).results;
-  console.log(poke);
+//  console.log(poke);
   fillPoke();
-  console.log(this.responseText);
+//  console.log(this.responseText);
 }
 
 
