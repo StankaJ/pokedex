@@ -56,9 +56,13 @@ console.log(fetch('http://pokeapi.co/api/v2/pokemon/?limit=50').then(function(re
 https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png
 https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other-sprites/official-artwork/1.png
 */
-function fillPoke() {
+
+
+function fillPoke(filter) {
   root.innerHTML = '';
   poke.forEach(function(pokemonItem){
+    if (pokemonItem.name.startsWith(filter))
+    {
     let pokemon = document.createElement("li");
     let pokemonImage = document.createElement("img");
     let pokemonLabel = document.createElement("label");
@@ -68,6 +72,7 @@ function fillPoke() {
     pokemon.appendChild(pokemonImage);
     pokemon.appendChild(pokemonLabel);
     root.appendChild(pokemon);
+    }
   })
 }
 
@@ -77,6 +82,7 @@ function reqListener () {
   fillPoke();
 //  console.log(this.responseText);
 }
+
 
 
 var oReq = new XMLHttpRequest();
