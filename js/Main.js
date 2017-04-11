@@ -32,7 +32,7 @@ var poke =
   "type": [ "grass" ],
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/152.png"
 },
-]
+];
 
 var root = document.querySelector(".pokemons");
 
@@ -40,7 +40,10 @@ for (let it of poke)
 {
   let pokemon = document.createElement("li"); 
   let pokemonImage = document.createElement("img");
+  let pokemonLabel = document.createElement("label");
   pokemonImage.src=it.sprite;
-  root.appendChild(pokemon);
+  pokemonLabel.textContent = it.name;
   pokemon.appendChild(pokemonImage);  
+  pokemon.appendChild(pokemonLabel);
+  root.appendChild(pokemon);
 }
