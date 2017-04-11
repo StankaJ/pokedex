@@ -78,20 +78,24 @@ function fillPoke(filter) {
 }
 
 document.getElementById("pokeSearch").addEventListener("input",function(){fillPoke(this.value)});
-
+/*
 function reqListener () {
   poke = JSON.parse(this.response).results;
 //  console.log(poke);
   fillPoke('');
 //  console.log(this.responseText);
 }
+*/
 
-
-
+/*
 var oReq = new XMLHttpRequest();
 oReq.addEventListener("load", reqListener);
 oReq.open("GET", "http://pokeapi.co/api/v2/pokemon/?limit=50");
 oReq.send();
-/*
-
 */
+fetch("http://pokeapi.co/api/v2/pokemon/?limit=50").then(function(response){
+  return response.json().then(function(data){
+    poke = data.results;
+    fillPoke('');
+  });
+});
