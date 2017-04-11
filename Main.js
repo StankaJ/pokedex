@@ -67,7 +67,7 @@ function fillPoke(filter) {
         let pokemon = document.createElement("li");
         let pokemonImage = document.createElement("img");
         let pokemonLabel = document.createElement("label");
-        let pictureNumber = pokemonItem.url.replace("http://pokeapi.co/api/v2/pokemon/","").replace("/","");
+        let pictureNumber = pokemonItem.url.replace("https://pokeapi.co/api/v2/pokemon/","").replace("/","");
         pokemonImage.src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other-sprites/official-artwork/"+pictureNumber+".png";
         pokemonLabel.textContent = pokemonItem.name;
         pokemon.appendChild(pokemonImage);
@@ -94,7 +94,7 @@ oReq.addEventListener("load", reqListener);
 oReq.open("GET", "http://pokeapi.co/api/v2/pokemon/?limit=50");
 oReq.send();
 */
-fetch("http://pokeapi.co/api/v2/pokemon/?limit=200").then(function(response){
+fetch("https://pokeapi.co/api/v2/pokemon/?limit=200").then(function(response){
   return response.json().then(function(data){
     poke = data.results;
     fillPoke('');
