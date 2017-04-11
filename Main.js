@@ -78,7 +78,8 @@ function fillPoke(filter) {
 }
 
 var pokeSearchInput = document.getElementById("pokeSearch");
-pokeSearchInput.addEventListener(oninput,fillPoke(pokeSearchInput.value));
+console.log("alma"+pokeSearchInput);
+pokeSearchInput.addEventListener("input",function(){fillPoke(pokeSearchInput.value)});
 
 function reqListener () {
   poke = JSON.parse(this.response).results;
