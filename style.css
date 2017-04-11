@@ -1,6 +1,6 @@
 #pokemon-list {
     position: relative;
-    display: table;
+    display: table;   
 }
 
 label{
@@ -78,5 +78,5 @@ input{
     border-bottom: 2px solid red;    
     color: black;
     font-size: 18px;
-    font-weight: bold;
+    font-weight: bold;   
 }
