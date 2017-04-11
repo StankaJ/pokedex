@@ -12,6 +12,8 @@ label{
 img{    
     display: block;
     margin: 0 auto;
+    width: 150px;
+    height: 150px;
 }
 
 li {
@@ -20,8 +22,8 @@ li {
     margin: 10px;
     border: 1px solid #AD235E;
     background-color: gray;
-    width: 150px;
-    height: 150px;
+    width: 180px;
+    height: 180px;
     font-size: 18px;  
 }
 
