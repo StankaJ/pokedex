@@ -58,10 +58,7 @@ function getDetails(id) {
 </div>*/
   fetch("https://pokeapi.co/api/v2/pokemon/" + id).then(function (response) {
     return response.json().then(function (data) {
-      console.log(data);
-      console.log(data.name);
-
-
+      
       var root = document.querySelector("#pokemon-list");
       let modal = document.createElement("div");
       let modalContent = document.createElement("div");
