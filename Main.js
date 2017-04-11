@@ -1,5 +1,6 @@
 "use strict"
 var poke;
+/*
 var poke2 =
   [
     {
@@ -33,7 +34,7 @@ var poke2 =
       "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/152.png"
     },
   ];
-
+*/
 var root = document.querySelector(".pokemons");
 
 /*
