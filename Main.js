@@ -36,7 +36,7 @@ var poke =
 
 var root = document.querySelector(".pokemons");
 
-setTimeout( functon(){
+setTimeout( function(){
   for (let it of poke){
     let pokemon = document.createElement("li"); 
     let pokemonImage = document.createElement("img");
@@ -47,7 +47,7 @@ setTimeout( functon(){
     pokemon.appendChild(pokemonLabel);
     root.appendChild(pokemon);
   }
-}, 3000)
+}, 3000);
 
 /*
 
