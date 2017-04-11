@@ -53,6 +53,8 @@ setTimeout(function () {
 }, 3000);
 var alma;
 console.log(fetch('http://pokeapi.co/api/v2/pokemon/?limit=50').then(function(response){return response}));
+https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png
+https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other-sprites/official-artwork/1.png
 */
 function fillPoke() {
   root.innerHTML = '';
@@ -60,7 +62,8 @@ function fillPoke() {
     let pokemon = document.createElement("li");
     let pokemonImage = document.createElement("img");
     let pokemonLabel = document.createElement("label");
-    pokemonImage.src = pokemonItem.url;
+    let pictureNumber = pokemonItem.url.replace("http://pokeapi.co/api/v2/pokemon/","").replace("/","");
+    pokemonImage.src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other-sprites/official-artwork/"+pictureNumber+".png";
     pokemonLabel.textContent = pokemonItem.name;
     pokemon.appendChild(pokemonImage);
     pokemon.appendChild(pokemonLabel);
