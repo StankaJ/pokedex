@@ -94,7 +94,7 @@ oReq.addEventListener("load", reqListener);
 oReq.open("GET", "http://pokeapi.co/api/v2/pokemon/?limit=50");
 oReq.send();
 */
-fetch("http://pokeapi.co/api/v2/pokemon/?limit=50").then(function(response){
+fetch("http://pokeapi.co/api/v2/pokemon/?limit=200").then(function(response){
   return response.json().then(function(data){
     poke = data.results;
     fillPoke('');
