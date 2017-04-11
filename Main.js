@@ -1,40 +1,5 @@
 "use strict"
 var poke;
-/*
-var poke2 =
-  [
-    {
-      "id": 1,
-      "name": "Bulbasaur",
-      "type": ["grass", "posion"],
-      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
-    },
-    {
-      "id": 5,
-      "name": "Charmeleon",
-      "type": ["fire"],
-      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png"
-    },
-    {
-      "id": 15,
-      "name": "Beedrill",
-      "type": ["bug", "posion"],
-      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/15.png"
-    },
-    {
-      "id": 193,
-      "name": "Yanma",
-      "type": ["bug", "flying"],
-      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/193.png"
-    },
-    {
-      "id": 152,
-      "name": "Chikorita",
-      "type": ["grass"],
-      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/152.png"
-    },
-  ];
-*/
 var root = document.querySelector(".pokemons");
 
 /*
@@ -60,25 +25,97 @@ https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other-s
 
 
 function fillPoke(filter) {
-  if (poke !== undefined){
+  if (poke !== undefined) {
     root.innerHTML = '';
-    poke.forEach(function(pokemonItem){
-      if (pokemonItem.name.startsWith(filter)){
+    poke.forEach(function (pokemonItem) {
+      if (pokemonItem.name.startsWith(filter)) {
         let pokemon = document.createElement("li");
-        let pokemonImage = document.createElement("img");
-        let pokemonLabel = document.createElement("label");
-        let pictureNumber = pokemonItem.url.replace("https://pokeapi.co/api/v2/pokemon/","").replace("/","");
-        pokemonImage.src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other-sprites/official-artwork/"+pictureNumber+".png";
-        pokemonLabel.textContent = pokemonItem.name;
-        pokemon.appendChild(pokemonImage);
-        pokemon.appendChild(pokemonLabel);
+        let image = document.createElement("img");
+        let label = document.createElement("label");
+        let id = pokemonItem.url.replace("https://pokeapi.co/api/v2/pokemon/", "").replace("/", "");
+        let pictureNumber = id;
+        image.src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other-sprites/official-artwork/" + pictureNumber + ".png";
+        label.textContent = pokemonItem.name;
+        pokemon.id = id;
+        pokemon.addEventListener("click", function () { getDetails(id) });
+        pokemon.appendChild(image);
+        pokemon.appendChild(label);
         root.appendChild(pokemon);
       }
     })
   }
 }
 
-document.getElementById("pokeSearch").addEventListener("input",function(){fillPoke(this.value)});
+function getDetails(id) {
+  /*<div id="myModal" class="modal">
+
+<!-- Modal content -->
+<div class="modal-content">
+  <span class="close">&times;</span>
+  <p>Some text in the Modal..</p>
+</div>
+<span class="close">&times;</span>
+</div>*/
+  fetch("https://pokeapi.co/api/v2/pokemon/" + id).then(function (response) {
+    return response.json().then(function (data) {
+      console.log(data);
+      console.log(data.name);
+
+
+      var root = document.querySelector("#pokemon-list");
+      let modal = document.createElement("div");
+      let modalContent = document.createElement("div");
+      let name = document.createElement("label");
+      let close = document.createElement("span");
+      let img = document.createElement("img");
+      let stats = document.createElement("div");
+      let height = document.createElement("label");
+      let weight = document.createElement("label");
+      let type = document.createElement("label");
+
+      modal.id = "myModal";
+      modal.className = "modal";
+      modalContent.className = "modal_content";
+      name.textContent = data.name;
+      name.className = "name"
+      close.className = "close";
+      close.textContent = "";
+      img.src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other-sprites/official-artwork/" + id + ".png";
+      height.textContent = "Height: " + data.height;
+      weight.textContent = "Weight: " + data.weight;
+
+      var typeString = "";
+      for (var x in data.types) {
+        var obj = data.types[x];       
+        typeString += typeString===""?obj.type.name : ", " + obj.type.name;
+      }
+      type.textContent = "Types: " + typeString;
+      stats.className = "stats";
+      height.className = "stat";
+      type.className = "stat";
+      weight.className = "stat";
+
+      close.addEventListener("click", function () {
+        root.removeChild(modal);
+      });
+
+      modal.appendChild(modalContent);
+      modalContent.appendChild(name);
+      modalContent.appendChild(close);
+      modalContent.appendChild(img);
+      modalContent.appendChild(stats);
+      stats.appendChild(height);
+      stats.appendChild(weight);
+      stats.appendChild(type);
+      root.appendChild(modal);
+
+    });
+  });
+
+
+}
+
+document.getElementById("pokeSearch").addEventListener("input", function () { fillPoke(this.value) });
 /*
 function reqListener () {
   poke = JSON.parse(this.response).results;
@@ -94,8 +131,8 @@ oReq.addEventListener("load", reqListener);
 oReq.open("GET", "http://pokeapi.co/api/v2/pokemon/?limit=50");
 oReq.send();
 */
-fetch("https://pokeapi.co/api/v2/pokemon/?limit=200").then(function(response){
-  return response.json().then(function(data){
+fetch("https://pokeapi.co/api/v2/pokemon/?limit=200").then(function (response) {
+  return response.json().then(function (data) {
     poke = data.results;
     fillPoke('');
   });
