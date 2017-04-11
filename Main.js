@@ -36,14 +36,19 @@ var poke =
 
 var root = document.querySelector(".pokemons");
 
-for (let it of poke)
-{
-  let pokemon = document.createElement("li"); 
-  let pokemonImage = document.createElement("img");
-  let pokemonLabel = document.createElement("label");
-  pokemonImage.src=it.sprite;
-  pokemonLabel.textContent = it.name;
-  pokemon.appendChild(pokemonImage);  
-  pokemon.appendChild(pokemonLabel);
-  root.appendChild(pokemon);
-}
+setTimeout( functon(){
+  for (let it of poke){
+    let pokemon = document.createElement("li"); 
+    let pokemonImage = document.createElement("img");
+    let pokemonLabel = document.createElement("label");
+    pokemonImage.src=it.sprite;
+    pokemonLabel.textContent = it.name;
+    pokemon.appendChild(pokemonImage);  
+    pokemon.appendChild(pokemonLabel);
+    root.appendChild(pokemon);
+  }
+}, 3000)
+
+/*
+
+*/
