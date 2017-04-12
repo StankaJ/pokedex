@@ -14,7 +14,7 @@
     opacity: 0.0;
 }
 
-div.modal_content label.name {
+div label.name {
     font-size: 30px;
 }
 
