@@ -70,6 +70,7 @@ var pokemonTypes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 1
 //var pokemonTypes = [4];
 function collectTypes() {
     if (pokemonTypesCache.length == 0) {
+        console.log("network types");
         pokemonTypes.forEach(function (typeId) {
             fetch("http://pokeapi.co/api/v2/type/" + typeId).then(function (response) {
                 return response.json().then(function (data) {
@@ -80,6 +81,7 @@ function collectTypes() {
         });
     }
     else {
+        console.log("cached types");
         fillTypesByCache();
     }
 }
