@@ -15,10 +15,12 @@ function fillPoke(filter) {
         let pictureNumber = id;
         image.src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other-sprites/official-artwork/" + pictureNumber + ".png";
         label.textContent = pokemonItem.name;
-        pokemon.id = id;
+        pokemonItem.id=id;
+        pokemon.id='pokemon_'+id;
         pokemon.addEventListener("click", function () { getDetails(id) });
         pokemon.appendChild(image);
         pokemon.appendChild(label);
+        pokemon.classList.add('pokemon');
         root.appendChild(pokemon);
       }
     })
@@ -27,10 +29,27 @@ function fillPoke(filter) {
   
 }
 
+function filterPoke(filter)
+{
+    poke.forEach(function (pokemonItem){
+        if (pokemonItem.name.startsWith(filter))
+        {
+            showById('pokemon_'+pokemonItem.id);
+        }
+        else
+        {
+            hideById('pokemon_'+pokemonItem.id);
+        }
+    });
+    checkNoResult();
+}
+
 function checkNoResult(){
-    let pokeList = document.querySelector(".pokemons");
-    console.log('CheckNoResult'+pokeList.childNodes.length);
-    if (pokeList.childNodes.length == 0)
+    let pokeList = document.querySelector(".pokemons>.pokemon:not(.hidden)");
+ //   let pokemons = pokeList.querySelector(".pokemon:not(.hidden)");
+ //   console.log('CheckNoResult'+pokemons);
+    
+    if (pokeList == null)
     {
         showById('noResultHolder');
     }
