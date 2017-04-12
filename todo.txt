@@ -10,16 +10,22 @@ data provider
      - large icon
      - detailed flag
      - species
-     - isShown
      - height
      - weight
   - get pokemons
   - set pokemon details
-  - show pokemons
   - lazy load
      - startLoad(step)
      - startLoadDetails(id)
 
+showData
+  - init page  
+  - show pokemons
+    - isShown
+    - wait for pictures
+  - show pokemon
+  - hide pokemon
+  
 
 
 details
@@ -28,6 +34,7 @@ details
   - make it fancier
 
 advanced filtering
+  - no result
   - filter type
   - filter inline name
 
