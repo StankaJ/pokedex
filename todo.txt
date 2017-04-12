@@ -12,6 +12,7 @@ data provider
 details
   - show details
   - animate details page
+  - make it fancier
 
 advanced filtering
   - filter type
