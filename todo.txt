@@ -18,7 +18,7 @@ data provider
      - startLoad(step)
      - startLoadDetails(id)
 
-showData
+data viewer
   - init page  
   - show pokemons
     - isShown
