@@ -18,7 +18,7 @@ data provider
   - set pokemon details
   - lazy load
      - startLoad(step)
-     - startLoadDetails(id)
+     - nextStep(step)
 
 data viewer
   - init page  
