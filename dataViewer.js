@@ -4,6 +4,7 @@ function fillPoke(filter) {
     poke.forEach(function (pokemonItem) {
         let id = pokemonItem.url.replace("https://pokeapi.co/api/v2/pokemon/", "").replace("/", "");
         pokemonItem.id=id;
+        pokemonItem.types=[];
         let pokemon = {};
         pokemon.id = id;
         pokemon.name=pokemonItem.name;
