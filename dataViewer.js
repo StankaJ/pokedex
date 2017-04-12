@@ -26,7 +26,7 @@ function createPokemonLi(pokemon){
         image.src = pokemon.src; //"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other-sprites/official-artwork/" + pictureNumber + ".png";
         label.textContent = pokemon.name;
         pokemonLi.id='pokemon_'+pokemon.id;
-        pokemonLi.addEventListener("click", function () { getDetails(id) });
+        pokemonLi.addEventListener("click", function () { getDetails(pokemon.id) });
         pokemonLi.appendChild(image);
         pokemonLi.appendChild(label);
         pokemonLi.classList.add('pokemon');
