@@ -3,6 +3,10 @@
     display: table;   
 }
 
+body{
+    background-color: antiquewhite;
+}
+
 label{
     display: block;
     font-family: cursive;
