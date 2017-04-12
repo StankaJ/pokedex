@@ -3,6 +3,10 @@
     display: table;   
 }
 
+body{
+    background-color: azure;
+}
+
 label{
     display: block;
     font-family: cursive;
