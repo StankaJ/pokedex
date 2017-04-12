@@ -6,7 +6,7 @@
     width: 60%; /* Full width */   
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(255,255,255); /* Fallback color */
-    background-color: rgba(255,255,255,0.8); /* Black w/ opacity */
+    background-color: rgba(255,255,255,0.9); /* Black w/ opacity */
 }
 
 .hidden{
@@ -14,14 +14,14 @@
     opacity: 0.0;
 }
 
-div label.name {
+label.name {
     font-size: 30px;
 }
 
-div.modal_content label.stat {
+label.stat {
 }
 
-div.modal_content div.stats {
+div.stats {
     display: inline-block;
     height: 300px;
     width: 300px;
