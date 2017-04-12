@@ -89,7 +89,7 @@ function collectTypes() {
 function fillTypesByCache() {
     pokemons.forEach(function (pokemon){
         pokemon.id;
-        pokemon.typesNames = pokemonTypesCache[pokemon.id-1];
+        pokemon.typeNames = pokemonTypesCache[pokemon.id-1];
     });
 }
 
