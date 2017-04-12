@@ -2,12 +2,17 @@ plan what how who to do
 
 data provider
   - load basic pokemons data
-     - id is the key
+    - object
+     - id and as key
      - name
      - type
      - small icon
      - large icon
      - detailed flag
+     - species
+     - isShown
+     - height
+     - weight
   - get pokemons
   - set pokemon details
   - show pokemons
