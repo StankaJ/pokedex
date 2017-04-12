@@ -12,7 +12,9 @@ data provider
      - species
      - height
      - weight
+     - original object
   - get pokemons
+  - get details
   - set pokemon details
   - lazy load
      - startLoad(step)
