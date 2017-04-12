@@ -50,6 +50,11 @@ function filterPoke(filter) {
     checkNoResult();
 }
 
+function filterByClass(filter) {
+    let objs = document.querySelectorAll(".pokemon:not(."+filter+")");
+    objs.forEach({function (obj) {obj.classList.add('hidden');}});
+}
+
 function checkNoResult() {
     let pokeList = document.querySelector(".pokemons>.pokemon:not(.hidden)");
     //   let pokemons = pokeList.querySelector(".pokemon:not(.hidden)");
@@ -67,6 +72,17 @@ function showById(id) {
     let obj = document.querySelector("#" + id);
     obj.classList.remove('hidden');
 }
+
+function ShowPokemonByClassName(className){
+    let objs = document.querySelectorAll(".pokemon."+className);
+    objs.forEach({function (obj) {obj.classList.remove('hidden');}});
+}
+
+function hideByClassName(className) {
+    let objs = document.querySelectorAll(".pokemon."+className);
+    objs.forEach({function (obj) {obj.classList.add('hidden');}});
+}
+
 function hideById(id) {
     let obj = document.querySelector("#" + id);
     obj.classList.add('hidden');

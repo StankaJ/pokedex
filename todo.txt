@@ -1,7 +1,7 @@
 plan what how who to do
 
 data provider
-  - load basic pokemons data
+Done  - load basic pokemons data
     - object
      - id and as key
      - name
@@ -13,26 +13,26 @@ data provider
      - height
      - weight
      - original object
-  - get pokemons
-  - get details
-  - set pokemon details
+Done  - get pokemons
+Done  - get details
+Done  - set pokemon details
   - lazy load
      - startLoad(step)
      - nextStep(step)
 
 data viewer
-  - init page  
-  - show pokemons
+Done  - init page  
+Done  - show pokemons
     - isShown
     - wait for pictures
-  - show pokemon
-  - hide pokemon
+Done  - show pokemon
+Done  - hide pokemon
   
 
 
 details
-  - show details
-  - animate details page
+Done  - show details
+Done  - animate details page
   - make it fancier
 
 advanced filtering
