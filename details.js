@@ -1,7 +1,6 @@
 let close = document.querySelector("#closeButton");
 close.addEventListener("click", function () {
-    let modal = document.querySelector("#myModal");
-    modal.className = "modal hidden";
+    document.querySelector("#myModal").classList.add("hidden");
 });
 
 function getDetails(id) {
@@ -12,7 +11,7 @@ function getDetails(id) {
             document.querySelector("#pokeHeight").textContent = "Height: " + data.height;
             document.querySelector("#pokeWeight").textContent = "Weight: " + data.weight;
             document.querySelector("#pokeName").textContent = data.name;
-            document.querySelector("#myModal").className = "modal";
+            document.querySelector("#myModal").classList.remove("hidden");
             let type = document.querySelector("#pokeType");
 
             var typeString = "";

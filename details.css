@@ -9,6 +9,8 @@
     background-color: rgb(255,255,255); /* Fallback color */
     background-color: rgba(255,255,255,0.9); /* Black w/ opacity */
     transition: width 2s;
+    border: 1px solid black;
+    box-shadow: 5px 5px 2px black;
 }
 
 .hidden{
@@ -17,6 +19,7 @@
 
 label.name {
     font-size: 30px;
+    background-color: royalblue;
 }
 
 div.stats {
@@ -24,7 +27,7 @@ div.stats {
     /*height: 300px;
     width: 300px;*/
     position: absolute;
-    margin-top: 20px;    
+    margin-top: 20px;      
 }
 div.modal_content div {       
     width:50%;
@@ -47,10 +50,11 @@ div.modal_content img {
     font-size: 32px;
     font-weight: bold;
     height: 32px;
-    width: 32px;
-    margin-top:-40px;   
+    width: 32px;    
     opacity: 0.8;    
-    background-image: url(close.png);
+    background-image: url(close2.png);
+    margin-top: -37px;
+    margin-right: 2px;
 }
 
 .close:hover,
