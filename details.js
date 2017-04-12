@@ -1,65 +1,41 @@
+let close = document.querySelector("#closeButton");
+console.log("add");
+close.addEventListener("click", function () {
+    console.log("Close");
+    let modal = document.querySelector("#myModal");
+    modal.className = "modal hidden";
+});
+
 function getDetails(id) {
-  /*<div id="myModal" class="modal">
+    fetch("https://pokeapi.co/api/v2/pokemon/" + id).then(function (response) {
+        return response.json().then(function (data) {
 
-<!-- Modal content -->
-<div class="modal-content">
-  <span class="close">&times;</span>
-  <p>Some text in the Modal..</p>
-</div>
-<span class="close">&times;</span>
-</div>*/
-  fetch("https://pokeapi.co/api/v2/pokemon/" + id).then(function (response) {
-    return response.json().then(function (data) {
-      
-      var root = document.querySelector("#pokemon-list");
-      let modal = document.createElement("div");
-      let modalContent = document.createElement("div");
-      let name = document.createElement("label");
-      let close = document.createElement("span");
-      let img = document.createElement("img");
-      let stats = document.createElement("div");
-      let height = document.createElement("label");
-      let weight = document.createElement("label");
-      let type = document.createElement("label");
+            let img = document.querySelector("#pokeImg");
+            let height = document.querySelector("#pokeHeight");
+            let weight = document.querySelector("#pokeWeight");
+            let type = document.querySelector("#pokeType");
+            let name = document.querySelector("#pokeName");
+            let modal = document.querySelector("#myModal");
 
-      modal.id = "myModal";
-      modal.className = "modal";
-      modalContent.className = "modal_content";
-      name.textContent = data.name;
-      name.className = "name"
-      close.className = "close";
-      close.textContent = "";
-      img.src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other-sprites/official-artwork/" + id + ".png";
-      height.textContent = "Height: " + data.height;
-      weight.textContent = "Weight: " + data.weight;
+            name.textContent = data.name;
+            img.src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other-sprites/official-artwork/" + id + ".png";
+            height.textContent = "Height: " + data.height;
+            weight.textContent = "Weight: " + data.weight;
+            modal.className = "modal";
+            console.log(data.name);
+            console.log(data.height);
+            console.log(data.weight);
 
-      var typeString = "";
-      for (var x in data.types) {
-        var obj = data.types[x];       
-        typeString += typeString===""?obj.type.name : ", " + obj.type.name;
-      }
-      type.textContent = "Types: " + typeString;
-      stats.className = "stats";
-      height.className = "stat";
-      type.className = "stat";
-      weight.className = "stat";
+            var typeString = "";
+            for (var x in data.types) {
+                var obj = data.types[x];
+                typeString += typeString === "" ? obj.type.name : ", " + obj.type.name;
+            }
+            type.textContent = "Types: " + typeString;
 
-      close.addEventListener("click", function () {
-        root.removeChild(modal);
-      });
 
-      modal.appendChild(modalContent);
-      modalContent.appendChild(name);
-      modalContent.appendChild(close);
-      modalContent.appendChild(img);
-      modalContent.appendChild(stats);
-      stats.appendChild(height);
-      stats.appendChild(weight);
-      stats.appendChild(type);
-      root.appendChild(modal);
-
+        });
     });
-  });
 
 
 }
