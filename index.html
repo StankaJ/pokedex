@@ -1,23 +1,41 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">   
+    <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="details.css">
 </head>
 
-<body>    
-    <p><h1>Pokémon Database</h1><p>
-    <input id="pokeSearch" type="search" placeholder="Search for Pokémon"/>
-    <div id="pokemon-list">       
-        <ul class="pokemons">
-            <div class="loader-wrapper">
-            <div class="loader"></div>
+<body>
+    <p>
+        <h1>Pokémon Database</h1>
+        <p>
+            <input id="pokeSearch" type="search" placeholder="Search for Pokémon" />
+            <div id="pokemon-list">
+                <ul class="pokemons">
+                    <div class="loader-wrapper">
+                        <div class="loader"></div>
+                    </div>
+                </ul>
             </div>
-        </ul>
-    </div>
-    <script src="Main.js"></script>
-    <script src="details.js"></script>
+
+            <div id="myModal" class="modal hidden">
+                <div class="modal_content">                    
+                    <div>
+                         <label id="pokeName" class="name"></label>
+                         <span class="close" id="closeButton"></span>
+                    </div>                   
+                    <img id="pokeImg"></img>
+                    <div class="stats">
+                        <label id="pokeHeight" class="stat"></label>
+                        <label id="pokeWeight" class="stat"></label>
+                        <label id="pokeType" class="stat"></label>
+                    </div>
+                </div>
+                
+            </div>
+            <script src="Main.js"></script>
+            <script src="details.js"></script>
 </body>
 
 </html>
