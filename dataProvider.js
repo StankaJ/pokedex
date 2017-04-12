@@ -72,7 +72,7 @@ function collectTypes() {
     if (pokemonTypesCache.length == 0) {
         console.log("network types");
         pokemonTypes.forEach(function (typeId) {
-            fetch("http://pokeapi.co/api/v2/type/" + typeId).then(function (response) {
+            fetch("https://pokeapi.co/api/v2/type/" + typeId).then(function (response) {
                 return response.json().then(function (data) {
                     //                console.log(data);
                     fillTypes(data);
@@ -97,7 +97,7 @@ function fillTypes(typePokemonList) {
     let typeName = typePokemonList.name;
     let pokemonList = typePokemonList.pokemon;
     pokemonList.forEach(function (pokemon) {
-        let pokemonId = pokemon.pokemon.url.replace("http://pokeapi.co/api/v2/pokemon/", "").replace("/", "");
+        let pokemonId = pokemon.pokemon.url.replace("https://pokeapi.co/api/v2/pokemon/", "").replace("/", "");
 
         setPokemonType(parseInt(pokemonId), typeName);
     });
