@@ -22,18 +22,18 @@ label.stat {
 }
 
 div.stats {
-    display: inline-block;
+    /*display: inline-block;
     height: 300px;
-    width: 300px;
+    width: 300px;*/
     position: absolute;
-    margin-top: 20px;
+    margin-top: 20px;    
 }
 
 div.modal_content img {
     height: 300px;
     width: 300px;
     margin-top: 20px;    
-    display: inline-block;
+    /*display: inline-block;*/
 }
 .modal_content{
     flex-flow: row;
