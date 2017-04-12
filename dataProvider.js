@@ -1,5 +1,5 @@
 var pokemons = [];
-var poke = [];
+var pokeTypes = [];
 
 fetchList(10);
 fetchPokemon(2);
@@ -48,7 +48,7 @@ function fetchPokemon(id) {
           pokemon.weight = data.weight;
           pokemon.types = data.types;
       }
-      poke.push(pokemon.id);
+      pokemons.push(pokemon.id);
       console.log(pokemons);
 
       return pokemon;
