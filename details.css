@@ -59,7 +59,7 @@ div.modal_content img {
 
 .close:hover,
 .close:focus {
-    background-color:darksalmon;
+    background-color:grey;
     text-decoration: none;
     cursor: pointer;
 }
