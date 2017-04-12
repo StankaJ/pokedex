@@ -1,5 +1,5 @@
 var pokemons = [];
-var pokeTypes = [];
+var poke = [];
 
 fetchList(10);
 fetchPokemon(2);
@@ -15,7 +15,8 @@ function fetchList(limit) {
           url : "",
           height : "",
           weight : "",
-          types : []          
+          types : [],
+          typeNames: []
         };
 
         pokemon.id = data.results[i].url.replace("https://pokeapi.co/api/v2/pokemon/", "").replace("/", "");
@@ -48,8 +49,8 @@ function fetchPokemon(id) {
           pokemon.weight = data.weight;
           pokemon.types = data.types;
       }
-      pokemons.push(pokemon.id);
-      console.log(pokemons);
+      poke.push(pokemon.id);
+      console.log("pokemons"+pokemons);
 
       return pokemon;
     });
@@ -90,15 +91,15 @@ function fillTypes(typePokemonList) {
 }
 
 function setPokemonType(pokemonId, typeName) {
-    let pokemon = poke[pokemonId];
+    let pokemon = pokemons[pokemonId];
     if (pokemon !== undefined) {
-        if (pokemon.types.length == 0) {
-            pokemon.types.push(typeName);
+        if (pokemon.typeNames.length == 0) {
+            pokemon.typeNames.push(typeName);
         }
-        else if (pokemon.types.indexOf(typeName) == -1) {
-            pokemon.types.push(typeName);
+        else if (pokemon.typeNames.indexOf(typeName) == -1) {
+            pokemon.typeNames.push(typeName);
         }
-        poke[pokemonId] = pokemon;
+        pokemons[pokemonId] = pokemon;
     }
     
 }
