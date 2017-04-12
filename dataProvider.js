@@ -1,82 +1,95 @@
 var pokemons = [];
 var poke = [];
-
-fetchList(300);
+var pokemonTypesCache = [];
+fetchList(10);
 fetchPokemon(2);
 // "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other-sprites/official-artwork/" + id + ".png"
 
 function fetchList(limit) {
-  fetch("https://pokeapi.co/api/v2/pokemon/?limit=" + limit).then(function (response) {
-    return response.json().then(function (data) {
-      for (i in data.results) {
-        let pokemon = {
-          id : "",
-          name,
-          url : "",
-          height : "",
-          weight : "",
-          types : [],
-          typeNames: []
-        };
+    fetch("https://pokeapi.co/api/v2/pokemon/?limit=" + limit).then(function (response) {
+        return response.json().then(function (data) {
+            for (i in data.results) {
+                let pokemon = {
+                    id: "",
+                    name,
+                    url: "",
+                    height: "",
+                    weight: "",
+                    types: [],
+                    typeNames: []
+                };
 
-        pokemon.id = data.results[i].url.replace("https://pokeapi.co/api/v2/pokemon/", "").replace("/", "");
-        pokemon.name = data.results[i].name;
-        pokemon.url = data.results[i].url;
+                pokemon.id = data.results[i].url.replace("https://pokeapi.co/api/v2/pokemon/", "").replace("/", "");
+                pokemon.name = data.results[i].name;
+                pokemon.url = data.results[i].url;
 
-        pokemons.push(pokemon);
-      }
-    });
-  }).then(function(){fillPoke('')});
+                pokemons.push(pokemon);
+            }
+        });
+    }).then(function () { fillPoke('') });
 }
 
 function searchList(id, list) {
-  for (i in pokemons) {
-    if (pokemons[i].id == id)
-    {
-      return pokemons[i];
+    for (i in pokemons) {
+        if (pokemons[i].id == id) {
+            return pokemons[i];
+        }
     }
-  }
 }
 
 function fetchPokemon(id) {
-  fetch("https://pokeapi.co/api/v2/pokemon/" + id).then(function (response) {
-    return response.json().then(function (data) {
-      console.log(data);
-        let pokemon = searchList(id);
-        console.log(pokemon);
-        if (pokemon != null) {
-          pokemon.height = data.height;
-          pokemon.weight = data.weight;
-          pokemon.types = data.types;
-      }
-      poke.push(pokemon.id);
-      console.log("pokemons"+pokemons);
+    fetch("https://pokeapi.co/api/v2/pokemon/" + id).then(function (response) {
+        return response.json().then(function (data) {
+            console.log(data);
+            let pokemon = searchList(id);
+            console.log(pokemon);
+            if (pokemon != null) {
+                pokemon.height = data.height;
+                pokemon.weight = data.weight;
+                pokemon.types = data.types;
+            }
+            poke.push(pokemon.id);
+            console.log("pokemons" + pokemons);
 
-      return pokemon;
+            return pokemon;
+        });
     });
-  });
 }
 
 function getPokemon(id) {
-  let pokemon;
-  if (poke.indexOf(id)) {
-    pokemon = searchList(id);
-  } else {
-    pokemon = fetchPokemon(id);
-  }
+    let pokemon;
+    if (poke.indexOf(id)) {
+        pokemon = searchList(id);
+    } else {
+        pokemon = fetchPokemon(id);
+    }
 }
 
 var pokemonTypes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 10001, 10002];
 
 //var pokemonTypes = [4];
 function collectTypes() {
-    pokemonTypes.forEach(function (typeId) {
-        fetch("http://pokeapi.co/api/v2/type/" + typeId).then(function (response) {
-            return response.json().then(function (data) {
-                //                console.log(data);
-                fillTypes(data);
-            });
-        })
+    if (pokemonTypesCache.length == 0) {
+        console.log("network types");
+        pokemonTypes.forEach(function (typeId) {
+            fetch("http://pokeapi.co/api/v2/type/" + typeId).then(function (response) {
+                return response.json().then(function (data) {
+                    //                console.log(data);
+                    fillTypes(data);
+                });
+            })
+        });
+    }
+    else {
+        console.log("cached types");
+        fillTypesByCache();
+    }
+}
+
+function fillTypesByCache() {
+    pokemons.forEach(function (pokemon){
+        pokemon.id;
+        pokemon.typeNames = pokemonTypesCache[pokemon.id-1];
     });
 }
 
@@ -86,7 +99,7 @@ function fillTypes(typePokemonList) {
     pokemonList.forEach(function (pokemon) {
         let pokemonId = pokemon.pokemon.url.replace("http://pokeapi.co/api/v2/pokemon/", "").replace("/", "");
 
-        setPokemonType(parseInt(pokemonId)-1, typeName);
+        setPokemonType(parseInt(pokemonId) - 1, typeName);
     });
 }
 
@@ -101,5 +114,11 @@ function setPokemonType(pokemonId, typeName) {
         }
         pokemons[pokemonId] = pokemon;
     }
-    
+    if (pokemonTypesCache[pokemonId] === undefined) {
+        pokemonTypesCache[pokemonId] = [typeName];
+    }
+    else {
+        pokemonTypesCache[pokemonId].push(typeName);
+    }
 }
+
