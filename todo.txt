@@ -8,6 +8,8 @@ data provider
      - detailed flag
   - get pokemons
   - set pokemon details
+  - show pokemons
+  - lazy load
 
 details
   - show details
@@ -17,9 +19,6 @@ details
 advanced filtering
   - filter type
   - filter inline name
-
-lazy load
-  - ?
 
 loading screen
   - make it fancier
