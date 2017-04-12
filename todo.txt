@@ -1,5 +1,11 @@
 data provider
   - load basic pokemons data
+     - id is the key
+     - name
+     - type
+     - small icon
+     - large icon
+     - detailed flag
   - get pokemons
   - set pokemon details
 
@@ -13,3 +19,9 @@ advanced filtering
 
 lazy load
   - ?
+
+loading screen
+  - make it fancier
+
+page build
+  - use data provider
