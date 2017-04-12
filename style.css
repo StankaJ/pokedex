@@ -85,3 +85,9 @@ input{
     font-weight: bold;   
 }
 
+#noResultHolder{
+    margin-left:50px;
+    padding-left:10px; 
+    font-size: 18px;
+    font-weight: bold;   
+}
