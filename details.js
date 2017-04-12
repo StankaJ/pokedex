@@ -7,6 +7,7 @@ colorMap.set("grass", "7AC74C");
 colorMap.set("ice", "96D9D6");
 colorMap.set("fighting", "C22E28");
 colorMap.set("poison", "A33EA1");
+colorMap.set("ground", "E2BF65");
 colorMap.set("flying", "A98FF3");
 colorMap.set("psychic", "F95587");
 colorMap.set("bug", "A6B91A");
