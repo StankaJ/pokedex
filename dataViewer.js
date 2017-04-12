@@ -1,6 +1,11 @@
 function fillPoke(filter) {
   if (poke !== undefined) {
+    hideById('loaderHolder');
+    //@TODO kill me
+    let root = document.querySelector(".pokemons");
     root.innerHTML = '';
+    console.log('Dosi' + filter);
+
     poke.forEach(function (pokemonItem) {
       if (pokemonItem.name.startsWith(filter)) {
         let pokemon = document.createElement("li");
@@ -17,5 +22,29 @@ function fillPoke(filter) {
         root.appendChild(pokemon);
       }
     })
+    checkNoResult();
   }
+  
+}
+
+function checkNoResult(){
+    let pokeList = document.querySelector(".pokemons");
+    console.log('CheckNoResult'+pokeList.childNodes.length);
+    if (pokeList.childNodes.length == 0)
+    {
+        showById('noResultHolder');
+    }
+    else
+    {
+        hideById('noResultHolder');
+    }
+}
+
+function showById(id){
+  let obj = document.querySelector("#"+id);
+  obj.classList.remove('hidden');
+}
+function hideById(id){
+  let obj = document.querySelector("#"+id);
+  obj.classList.add('hidden');
 }
