@@ -89,7 +89,7 @@ function collectTypes() {
 function fillTypesByCache() {
     pokemons.forEach(function (pokemon){
         pokemon.id;
-        pokemon.typeNames = pokemonTypesCache[pokemon.id-1];
+        pokemon.typeNames = pokemonTypesCache[pokemon.id];
     });
 }
 
@@ -99,7 +99,7 @@ function fillTypes(typePokemonList) {
     pokemonList.forEach(function (pokemon) {
         let pokemonId = pokemon.pokemon.url.replace("http://pokeapi.co/api/v2/pokemon/", "").replace("/", "");
 
-        setPokemonType(parseInt(pokemonId) - 1, typeName);
+        setPokemonType(parseInt(pokemonId), typeName);
     });
 }
 
