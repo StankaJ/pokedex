@@ -1,0 +1,4 @@
+data provider
+details
+advanced filtering
+lazy load
