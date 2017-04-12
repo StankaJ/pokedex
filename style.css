@@ -38,13 +38,13 @@ li:hover{
 
 h1{
     text-align: center;    
-    color: darkslategray; 
-    font-family: 'Lato', sans-serif; 
+    color: black; 
+    font-family: cursive; 
     font-size: 54px; 
     font-weight: 300; 
     line-height: 58px; 
     margin: 0 0 58px; 
-    background-color: #888888;
+    background-color: royalblue;
     margin-left:50px;
     width:95%;
 }
@@ -84,4 +84,75 @@ input{
     font-size: 18px;
     font-weight: bold;   
 }
-
+.normal{
+    background-color: #A8A77A;
+}
+.fire{
+    background-color: #EE8130;
+}
+.water{
+    background-color: #6390F0;
+}
+.electric{
+    background-color: #F7D02C;
+}
+.grass{
+    background-color: #7AC74C;
+}
+.ice{
+    background-color: #96D9D6;
+}
+.fighting{
+    background-color: #C22E28;
+}
+.poison{
+    background-color: #A33EA1;
+}
+.ground{
+    background-color: #E2BF65;
+}
+.flying{
+    background-color: #A98FF3;
+}
+.psychic{
+    background-color: #F95587;
+}
+.bug{
+    background-color: #A6B91A;
+}
+.rock{
+    background-color: #B6A136;
+}
+.ghost{
+    background-color: #735797;
+}
+.dragon{
+    background-color: #6F35FC;
+}
+.dark{
+    background-color: #705746;
+}
+.steel{
+    background-color: #B7B7CE;
+}
+.fairy{
+    background-color: #D685AD;
+}
+/*Normal Type: A8A77A
+Fire Type:  EE8130
+Water Type:  6390F0
+Electric Type:  F7D02C
+Grass Type:  7AC74C
+Ice Type:  96D9D6
+Fighting Type:  C22E28
+Poison Type:  A33EA1
+Ground Type:  E2BF65
+Flying Type:  A98FF3
+Psychic Type:  F95587
+Bug Type:  A6B91A
+Rock Type:  B6A136
+Ghost Type:  735797
+Dragon Type:  6F35FC
+Dark Type:  705746
+Steel Type:  B7B7CE
+Fairy Type:  D685AD*/

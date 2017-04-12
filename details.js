@@ -6,7 +6,7 @@ close.addEventListener("click", function () {
 function getDetails(id) {
     fetch("https://pokeapi.co/api/v2/pokemon/" + id).then(function (response) {
         return response.json().then(function (data) {
-
+            var firstType = "";
             document.querySelector("#pokeImg").src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other-sprites/official-artwork/" + id + ".png";
             document.querySelector("#pokeHeight").textContent = "Height: " + data.height;
             document.querySelector("#pokeWeight").textContent = "Weight: " + data.weight;
@@ -20,8 +20,10 @@ function getDetails(id) {
             for (var x in data.types) {
                 var obj = data.types[x];
                 typeString += typeString === "" ? obj.type.name : ", " + obj.type.name;
+                firstType = firstType === "" ? obj.type.name : firstType;
             }
             type.textContent = "Types: " + typeString;
+            document.querySelector("#pokeName").className = "name " + firstType;           
         });
     });
 }
