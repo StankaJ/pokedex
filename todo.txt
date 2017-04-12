@@ -10,6 +10,8 @@ data provider
   - set pokemon details
   - show pokemons
   - lazy load
+     - startLoad(step)
+     - startLoadDetails(id)
 
 details
   - show details
