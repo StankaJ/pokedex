@@ -24,6 +24,8 @@ close.addEventListener("click", function () {
 });
 
 function getDetails(id) {
+    let obj = document.querySelector("#fountainG");
+    obj.classList.remove('hidden');
     fetch("https://pokeapi.co/api/v2/pokemon/" + id).then(function (response) {
         return response.json().then(function (data) {
             var firstType = "";
@@ -47,13 +49,15 @@ function getDetails(id) {
                 firstType = firstType === "" ? obj.type.name : firstType;
 
             }
-            type.textContent = "Types: " + typeString; 
+            type.textContent = "Types: " + typeString;
             if (secondType === "") {
                 document.querySelector("#pokeName").setAttribute("style", "background-color:#" + colorMap.get(firstType));
             }
             else {
                 document.querySelector("#pokeName").setAttribute("style", "background: linear-gradient(90deg, #" + colorMap.get(firstType) + " 50%, #" + colorMap.get(secondType) + " 50%)");
             }
+            obj = document.querySelector("#fountainG");
+            obj.classList.add('hidden');
 
         });
     });

@@ -1,7 +1,12 @@
 var pokemons = [];
 var poke = [];
+<<<<<<< HEAD
 var pokemonTypesCache = [];
 fetchList(10);
+=======
+
+fetchList(300);
+>>>>>>> 01892283b9e57421be5937555d48d045f082c733
 fetchPokemon(2);
 // "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other-sprites/official-artwork/" + id + ".png"
 

@@ -1,6 +1,6 @@
 function fillPoke(filter) {
     if (pokemons !== undefined) {
-        hideById('loaderHolder');
+        hideById('fountainG');
         pokemons.forEach(function (pokemonItem) {
             let id = pokemonItem.url.replace("https://pokeapi.co/api/v2/pokemon/", "").replace("/", "");
             pokemonItem.id = id;
