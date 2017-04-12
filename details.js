@@ -10,6 +10,8 @@ function getDetails(id) {
             document.querySelector("#pokeImg").src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other-sprites/official-artwork/" + id + ".png";
             document.querySelector("#pokeHeight").textContent = "Height: " + data.height;
             document.querySelector("#pokeWeight").textContent = "Weight: " + data.weight;
+            document.querySelector("#pokeExp").textContent = "Base experience: " + data.base_experience;
+            document.querySelector("#pokeDefault").textContent = "Default: " + data.is_default;
             document.querySelector("#pokeName").textContent = data.name;
             document.querySelector("#myModal").classList.remove("hidden");
             let type = document.querySelector("#pokeType");
