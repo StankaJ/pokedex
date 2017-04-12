@@ -1,0 +1,45 @@
+plan what how who to do
+
+data provider
+  - load basic pokemons data
+    - object
+     - id and as key
+     - name
+     - type
+     - small icon
+     - large icon
+     - detailed flag
+     - species
+     - height
+     - weight
+  - get pokemons
+  - set pokemon details
+  - lazy load
+     - startLoad(step)
+     - startLoadDetails(id)
+
+data viewer
+  - init page  
+  - show pokemons
+    - isShown
+    - wait for pictures
+  - show pokemon
+  - hide pokemon
+  
+
+
+details
+  - show details
+  - animate details page
+  - make it fancier
+
+advanced filtering
+  - no result
+  - filter type
+  - filter inline name
+
+loading screen
+  - make it fancier
+
+page build
+  - use data provider
