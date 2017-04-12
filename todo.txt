@@ -1,13 +1,26 @@
+plan what how who to do
+
 data provider
   - load basic pokemons data
-     - id is the key
+    - object
+     - id and as key
      - name
      - type
      - small icon
      - large icon
      - detailed flag
+     - species
+     - isShown
+     - height
+     - weight
   - get pokemons
   - set pokemon details
+  - show pokemons
+  - lazy load
+     - startLoad(step)
+     - startLoadDetails(id)
+
+
 
 details
   - show details
@@ -17,9 +30,6 @@ details
 advanced filtering
   - filter type
   - filter inline name
-
-lazy load
-  - ?
 
 loading screen
   - make it fancier
