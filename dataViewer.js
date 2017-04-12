@@ -1,7 +1,7 @@
 function fillPoke(filter) {
-  if (poke !== undefined) {
+  if (pokemons !== undefined) {
     hideById('loaderHolder');
-    poke.forEach(function (pokemonItem) {
+    pokemons.forEach(function (pokemonItem) {
         let id = pokemonItem.url.replace("https://pokeapi.co/api/v2/pokemon/", "").replace("/", "");
         pokemonItem.id=id;
         pokemonItem.types=[];
@@ -42,7 +42,7 @@ function createPokemonLi(pokemon){
 
 function filterPoke(filter)
 {
-    poke.forEach(function (pokemonItem){
+    pokemons.forEach(function (pokemonItem){
         if (pokemonItem.name.startsWith(filter))
         {
             showById('pokemon_'+pokemonItem.id);

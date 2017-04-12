@@ -25,7 +25,7 @@ function fetchList(limit) {
         pokemons.push(pokemon);
       }
     });
-  });
+  }).then(function(){fillPoke('')});
 }
 
 function searchList(id, list) {
