@@ -26,7 +26,7 @@ function fetchList(limit) {
                 pokemons.push(pokemon);
             }
         });
-    }).then(function () { fillPoke('') });
+    }).then(function () { fillPoke('') }).then(function (){collectTypes();});
 }
 
 function searchList(id, list) {
@@ -114,6 +114,7 @@ function setPokemonType(pokemonId, typeName) {
         }
         pokemons[pokemonId] = pokemon;
     }
+    setTypeColor(pokemonId);
     if (pokemonTypesCache[pokemonId] === undefined) {
         pokemonTypesCache[pokemonId] = [typeName];
     }

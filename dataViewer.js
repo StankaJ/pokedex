@@ -71,3 +71,21 @@ function hideById(id) {
     let obj = document.querySelector("#" + id);
     obj.classList.add('hidden');
 }
+
+
+function setTypeColor(pokemonId) {
+    var pokemon = pokemons[pokemonId];
+    if (pokemon.typeNames !== undefined) {
+        var firstType = pokemon.typeNames[0];
+        var secondType = "";
+        if (pokemon.typeNames.length > 1) {
+            secondType = pokemon.typeNames[1];
+        }
+        if (secondType === "") {
+            document.querySelector("#pokemon_" + pokemonId).setAttribute("style", "background-color:#" + colorMap.get(firstType));
+        }
+        else {
+            document.querySelector("#pokemon_" + pokemonId).setAttribute("style", "background: linear-gradient(90deg, #" + colorMap.get(firstType) + " 50%, #" + colorMap.get(secondType) + " 50%)");
+        }
+    }
+}
