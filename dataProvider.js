@@ -1,7 +1,7 @@
 var pokemons = [];
 var poke = [];
 var pokemonTypesCache = [];
-fetchList(10);
+fetchList(11);
 fetchPokemon(2);
 // "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other-sprites/official-artwork/" + id + ".png"
 
@@ -22,7 +22,7 @@ function fetchList(limit) {
                 pokemon.id = data.results[i].url.replace("https://pokeapi.co/api/v2/pokemon/", "").replace("/", "");
                 pokemon.name = data.results[i].name;
                 pokemon.url = data.results[i].url;
-
+                pokemon.src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other-sprites/official-artwork/" + pokemon.id + ".png";
                 pokemons.push(pokemon);
             }
         });
@@ -91,6 +91,7 @@ function fillTypesByCache() {
         pokemon.id;
         pokemon.typeNames = pokemonTypesCache[pokemon.id];
     });
+    decoratePokemons();
 }
 
 function fillTypes(typePokemonList) {
@@ -99,9 +100,21 @@ function fillTypes(typePokemonList) {
     pokemonList.forEach(function (pokemon) {
         let pokemonId = pokemon.pokemon.url.replace("https://pokeapi.co/api/v2/pokemon/", "").replace("/", "");
 
-        setPokemonType(parseInt(pokemonId), typeName);
+    //    setPokemonType(parseInt(pokemonId), typeName);
+        fillTypeCache(parseInt(pokemonId), typeName);
     });
+    fillTypesByCache();
 }
+
+function fillTypeCache(pokemonId, typeName){
+    if (pokemonTypesCache[pokemonId] === undefined) {
+        pokemonTypesCache[pokemonId] = [typeName];
+    }
+    else {
+        pokemonTypesCache[pokemonId].push(typeName);
+    }
+}
+
 
 function setPokemonType(pokemonId, typeName) {
     let pokemon = pokemons[pokemonId];
@@ -114,13 +127,8 @@ function setPokemonType(pokemonId, typeName) {
         }
         pokemons[pokemonId] = pokemon;
         document.querySelector("#pokemon_"+pokemonId).classList.add(typeName);
+        console.log("Fill Types: id:"+pokemon.id+" Types:"+ pokemon.typeNames);
     }
     setTypeColor(pokemonId);
-    if (pokemonTypesCache[pokemonId] === undefined) {
-        pokemonTypesCache[pokemonId] = [typeName];
-    }
-    else {
-        pokemonTypesCache[pokemonId].push(typeName);
-    }
 }
 

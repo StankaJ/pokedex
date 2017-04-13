@@ -2,14 +2,14 @@ function fillPoke(filter) {
     if (pokemons !== undefined) {
         hideById('fountainG');
         pokemons.forEach(function (pokemonItem) {
-            let id = pokemonItem.url.replace("https://pokeapi.co/api/v2/pokemon/", "").replace("/", "");
-            pokemonItem.id = id;
-            pokemonItem.types = [];
-            let pokemon = {};
-            pokemon.id = id;
-            pokemon.name = pokemonItem.name;
-            pokemon.src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other-sprites/official-artwork/" + id + ".png";
-            createPokemonLi(pokemon);
+            //            let id = pokemonItem.url.replace("https://pokeapi.co/api/v2/pokemon/", "").replace("/", "");
+            //            pokemonItem.id = id;
+            //            pokemonItem.types = [];
+            //            let pokemon = {};
+            //            pokemon.id = id;
+            //            pokemon.name = pokemonItem.name;
+            //            pokemon.src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other-sprites/official-artwork/" + id + ".png";
+            createPokemonLi(pokemonItem);
         })
         checkNoResult();
     }
@@ -51,8 +51,8 @@ function filterPoke(filter) {
 }
 
 function filterByClass(filter) {
-    let objs = document.querySelectorAll(".pokemon:not(."+filter+")");
-    objs.forEach({function (obj) {obj.classList.add('hidden');}});
+    let objs = document.querySelectorAll(".pokemon:not(." + filter + ")");
+    objs.forEach({ function(obj) { obj.classList.add('hidden'); } });
 }
 
 function checkNoResult() {
@@ -73,14 +73,14 @@ function showById(id) {
     obj.classList.remove('hidden');
 }
 
-function ShowPokemonByClassName(className){
-    let objs = document.querySelectorAll(".pokemon."+className);
-    objs.forEach({function (obj) {obj.classList.remove('hidden');}});
+function ShowPokemonByClassName(className) {
+    let objs = document.querySelectorAll(".pokemon." + className);
+    objs.forEach({ function(obj) { obj.classList.remove('hidden'); } });
 }
 
 function hideByClassName(className) {
-    let objs = document.querySelectorAll(".pokemon."+className);
-    objs.forEach({function (obj) {obj.classList.add('hidden');}});
+    let objs = document.querySelectorAll(".pokemon." + className);
+    objs.forEach({ function(obj) { obj.classList.add('hidden'); } });
 }
 
 function hideById(id) {
@@ -89,8 +89,7 @@ function hideById(id) {
 }
 
 
-function setTypeColor(pokemonId) {
-    var pokemon = pokemons[pokemonId];
+function setTypeColor(pokemon) {
     if (pokemon !== undefined) {
         if (pokemon.typeNames !== undefined) {
             var firstType = pokemon.typeNames[0];
@@ -99,11 +98,22 @@ function setTypeColor(pokemonId) {
                 secondType = pokemon.typeNames[1];
             }
             if (secondType === "") {
-                document.querySelector("#pokemon_" + pokemonId).setAttribute("style", "background-color:#" + colorMap.get(firstType));
+                document.querySelector("#pokemon_" + pokemon.id).setAttribute("style", "background-color:#" + colorMap.get(firstType));
             }
             else {
-                document.querySelector("#pokemon_" + pokemonId).setAttribute("style", "background: linear-gradient(90deg, #" + colorMap.get(firstType) + " 50%, #" + colorMap.get(secondType) + " 50%)");
+                document.querySelector("#pokemon_" + pokemon.id).setAttribute("style", "background: linear-gradient(90deg, #" + colorMap.get(firstType) + " 50%, #" + colorMap.get(secondType) + " 50%)");
             }
         }
     }
+}
+
+function decoratePokemons() {
+    pokemons.forEach(function (pokemon) {
+        if (pokemon.typeNames != undefined) {
+            for (let i = 0; i < pokemon.typeNames.length; i++) {
+                document.querySelector("#pokemon_" + pokemon.id).classList.add(pokemon.typeNames[i]);
+            }
+            setTypeColor(pokemon);
+        }
+    });
 }
